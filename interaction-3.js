@@ -53,7 +53,7 @@ thunder.createDSP(audioContext, 1024)
 let hasFallen = false;
 
 function accelerationChange(accx, accy, accz) {
-    if (accz < -20) {
+    if (accz < -30) {
         hasFallen = true;
     }
     if (hasFallen === true && accz < 2 && accz > -2) {
