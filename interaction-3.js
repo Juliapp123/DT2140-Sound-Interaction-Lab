@@ -12,7 +12,7 @@ let dspNodeParams = null;
 let jsonParams = null;
 
 // Change here to ("tuono") depending on your wasm file name
-const dspName = "drop";
+const dspName = "thunder";
 const instance = new FaustWasm2ScriptProcessor(dspName);
 
 // output to window or npm package module
@@ -25,7 +25,7 @@ if (typeof module === "undefined") {
 }
 
 // The name should be the same as the WASM file, so change tuono with brass if you use brass.wasm
-drop.createDSP(audioContext, 1024)
+thunder.createDSP(audioContext, 1024)
     .then(node => {
         dspNode = node;
         dspNode.connect(audioContext.destination);
@@ -81,7 +81,7 @@ function deviceTurned() {
 function deviceShaken() {
     shaketimer = millis();
     statusLabels[0].style("color", "pink");
-    playAudio();
+    //playAudio();
 }
 
 function getMinMaxParam(address) {
@@ -109,8 +109,8 @@ function playAudio(pressure) {
     if (audioContext.state === 'suspended') {
         return;
     }
-    dspNode.setParamValue("/drop/drop", 1)
-    setTimeout(() => { dspNode.setParamValue("/drop/drop", 0) }, 100);
+    dspNode.setParamValue("/thunder/rumble", 1)
+    setTimeout(() => { dspNode.setParamValue("/thunder/rumble", 0) }, 100);
 }
 
 //==========================================================================================
