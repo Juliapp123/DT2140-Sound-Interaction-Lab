@@ -50,9 +50,9 @@ drop.createDSP(audioContext, 1024)
 //------------------------------------------------------------------------------------------
 //
 //==========================================================================================
+let hasFallen = false;
 
 function accelerationChange(accx, accy, accz) {
-    let hasFallen = false;
     if (accz < -20) {
         hasFallen = true;
     }
