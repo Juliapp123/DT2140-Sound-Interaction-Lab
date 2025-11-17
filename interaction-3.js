@@ -109,8 +109,8 @@ function playAudio(pressure) {
     if (audioContext.state === 'suspended') {
         return;
     }
-    console.log(pressure)
-    dspNode.setParamValue("/drop/drop", pressure)
+    dspNode.setParamValue("/drop/drop", 1)
+    setTimeout(() => { dspNode.setParamValue("/drop/drop", 0) }, 100);
 }
 
 //==========================================================================================
