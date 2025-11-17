@@ -58,6 +58,8 @@ function accelerationChange(accx, accy, accz) {
 function rotationChange(rotx, roty, rotz) {
     if (rotx > 80 && rotx < 120) {
         playAudio()
+    } else {
+        stopAudio()
     }
 }
 
@@ -115,6 +117,9 @@ function playAudio() {
     // For example if you change to a bell sound, here you could use "/churchBell/gate" instead of
     // "/thunder/rumble".
     dspNode.setParamValue("/engine/gate", 1)
+}
+
+function stopAudio() {
     setTimeout(() => { dspNode.setParamValue("/engine/gate", 0) }, 100);
 }
 
